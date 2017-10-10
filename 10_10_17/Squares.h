@@ -10,9 +10,8 @@ namespace shapes
 		{
 		public:
     int side;
-		Square1()//default constructor
+		Square1() : side(1) 
 		{
-			side=1;
 			std::cout<<"Square1: Object has been created with default constructor\n";
 		}
 		Square1(int side)
