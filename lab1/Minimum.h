@@ -7,8 +7,18 @@ namespace labI
 {
 	float Minimum(float data[], int size)
 	{
-		return -1;
+		float min = data[size];
+		min = data[0];
+
+		for (int i = 1; i < size; i +=1)
+		{
+			while(min > data[i])
+			{
+				min = data[i];
+			}
+		}
+		return min;
 	}
 }
 
-#endif 
+#endif
