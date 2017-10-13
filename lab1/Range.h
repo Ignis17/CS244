@@ -7,7 +7,10 @@ namespace labI
 {
 	float Range(float data[], int size)
 	{
-		return -1;
+		float max = Maximum(data, size);
+		float min = Minimum(data, size);
+		float range = (max -min);
+		return range;
 	}
 }
 
