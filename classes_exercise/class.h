@@ -17,8 +17,8 @@ namespace Exercises
     }
     std::string mult()
     {
-    std:: string result=" ";
-    for(int i=0;i<x;i++)
+    std::string result = " ";
+    for(int i = 0; i < x; i++)
     {
       result +=y;
     }

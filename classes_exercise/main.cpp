@@ -5,7 +5,7 @@ int main()
 {
   Exercise ex; // Exercises object
   ex.x = 5; // x field of object ex
-  ex.y = "Hello"; // y field of object ex
+  ex.y = "Hello "; // y field of object ex
 
   ex.print(); // print() method of object ex
 
