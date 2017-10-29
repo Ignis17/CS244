@@ -21,5 +21,4 @@ class Circle
     return 2*PI*radius;
   }
 };
-
 #endif
