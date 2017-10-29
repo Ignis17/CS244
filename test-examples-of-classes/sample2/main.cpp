@@ -28,10 +28,10 @@ int main()
 
   // Get den dimensions.
   cout << "What is the den's length? ";
-  cin >> number;                            // Get the length
-  den.setLength(number);                // Store in den object
+  cin >> number;                       // Get the length
+  den.setLength(number);               // Store in den object
   cout << "What is the den's width? ";
-  cin >> number;                           // Get the width
+  cin >> number;                       // Get the width
   den.setWidth(number);                // Store in den object
 
   // Calculate the total area of the three rooms.
