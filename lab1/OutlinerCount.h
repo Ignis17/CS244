@@ -3,6 +3,7 @@
 
 #include "Archive.h"
 #include <cmath>
+#include <iostream>
 
 namespace labI
 {
@@ -10,15 +11,16 @@ namespace labI
 	{
 		float *zScore = new float[size];
 		int count =0;
+		float mean = Mean(data, size), st = StandardDeviation(data, size);
 		for (int i=0; i < size;i++)
 		{
-			zScore[i] = data[i] - Mean(data, size) / StandardDeviation(data, size);
+			zScore[i] = (data[i] - mean) / st;
 		}
-		for (int i=0; i < size;i++)
+		for (int i =0; i < size; i++)
 		{
-			if (zScore[i] < -2 || zScore[i] > 2)
+			if (zScore[i] <= -2 || zScore[i] >= 2)
 			{
-				count = count + 1;
+				count += 1;
 			}
 		}
 		return count;
