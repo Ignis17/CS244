@@ -57,7 +57,6 @@ namespace example
 			{
 				this->side = rhs.side;
 			}
-
 			return *this;
 		}
 

@@ -4,19 +4,20 @@
 class Circle
 {
   public:
-  int radius;
-  double PI;
-  Circle()
+  double radius; // field named radius
+  double PI;     // field named PI
+
+  Circle()       // default constructor
   {
     radius = 1;
     PI = 3.14156;
   }
-  Circle(const Circle& other)
+  Circle(const Circle& other) // copy constructor
   {
     radius = (other.radius);
     PI = (other.PI);
   }
-  double  Circumference()
+  double  Circumference() // method
   {
     return 2*PI*radius;
   }
