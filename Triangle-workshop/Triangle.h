@@ -2,6 +2,7 @@
 #define TRIANGLE_H
 #include <cmath>
 #include <string>
+#include <sstream>
 
 class Triangle
 {
@@ -34,17 +35,14 @@ class Triangle
     }
     Triangle operator=(const Triangle rhs)
     {
-      /*First check to same if you
-			are performing a self assignment*/
-			if(this != &rhs)
-			{
-				this->side[0] = rhs.side[0];
-        this->side[1] = rhs.side[1];
-        this->side[2] = rhs.side[2];
-			}
+	     if(this != &rhs)
+	     {
+         this->side[0] = rhs.side[0];
+         this->side[1] = rhs.side[1];
+         this->side[2] = rhs.side[2];
+	     }
 			return *this;
     }
-
 };
 double Triangle::Perimeter()
 {
