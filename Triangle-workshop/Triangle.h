@@ -46,13 +46,13 @@ class Triangle
     }
 
 };
-double Triangle::Perimeter()
-{
-  return side[0]+side[1]+side[2];
-}
+//double Triangle::Perimeter()
+//{
+//  return side[0]+side[1]+side[2];
+//}
 double Triangle::LargestAngle()
 {
-  return
+
 }
 double Triangle::MedianAngle()
 {
