@@ -1,7 +1,11 @@
+// Name: Joel Turbi
+// Description: Exam 2 - Take Home
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include <iomanip>
+#include<fstream>
 #include "regPoly.h"
 
 using namespace std;
@@ -24,15 +28,19 @@ void Records(int n)
   {
     for(i=3;i<=n;i++)
     {
-      length = (rand() % 10 + 1);
+      length = (rand() % 9 + 1);
       RegularPolygon Polygon(length, i);
       cout << Stats(Polygon) << "\n";
+
+      fstream file = fstream("file.txt",ios::out|ios::app);
+      file << Stats(Polygon) << "\n";       //write to it
+      file.close();
     }
   }
 }
 
 int main()
 {
-  Records(15);
+  Records(10);
   return 0;
 }

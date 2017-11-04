@@ -1,9 +1,13 @@
+// Name: Joel Turbi
+// Description: Exam 2 - Take Home
+
 #ifndef REGPOLYGON_H
 #define REGPOLYGON_H
 
 #include <cmath>
 #include <sstream>
 #include <string>
+#include <iostream>
 
 class RegularPolygon
 {
@@ -55,14 +59,13 @@ class RegularPolygon
     // Returns the sum of all interior angles of the Polygon
     double SumOfInteriorAngles()
     {
-      return (sideOfPoly-2)*180;
+      return (sideOfPoly-2)*180.0;
     }
     // Returns area of Polygon
     double Area()
     {
       double perimeter = Perimeter();
-      long double CotValue = (1/tan(3.14159/sideOfPoly));
-      double apothem =(lengthOfPoly /2) * CotValue;
+      double apothem =(sideOfPoly)/(2*tan(180/lengthOfPoly));
       return (apothem*perimeter)/2;
     }
     // Returns a string that lists the fields of each set to one decimal point sepe
