@@ -1,0 +1,112 @@
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+4
+**DIVISION**
+Please enter first number: 
+4
+Please enter second number: 
+4
+4 / 4 = 1
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+3
+**MULTIPLICATION**
+Please enter first number: 
+3
+Please enter second number: 
+3
+3 x 3 = 9
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+4
+**DIVISION**
+Please enter first number: 
+4
+Please enter second number: 
+0
+4 / 0 = inf
+Cannot divide by zero.
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+6
+Ending Calculator...
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+1
+**ADDITION**
+Please enter first number: 
+1
+Please enter second number: 
+1
+1 + 1 = 2
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+6
+Ending Calculator...
+
+:: Welcome to Simple Calculator :: 
+
+What function do you want to use? 
+1 - Addition 
+2 - Subtraction 
+3 - Multiplication 
+4 - Division 
+5 - Power 
+6 - End Calculator 
+Input: 
+6
+Ending Calculator...
