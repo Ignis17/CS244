@@ -3,185 +3,107 @@
 // Due Date: 11/08/2017
 
 #include <iostream>
-#include <fstream>
-#include <cmath>
 #include <string>
-#include<cstdlib>
+#include "SimpleCal.h"
+#include <fstream>
+
 using namespace std;
 
-class Calculator
+// Displays Menu to user
+void Menu()
 {
-  public:
-    double Addition(const double &x, const double &y)
-    {
-      return (x + y);
-    }
+  cout << "\n\n\t\t:: Welcome to Simple Calculator :: \t\t\n\n";
+  cout << "Enter the expression in the form as follows: " << endl;
+  cout << "<operand> <operator> <operand>" << endl;
+}
 
-    double Subtraction(const double &x, const double &y)
-    {
-      return (x - y);
-    }
-
-    double Multiplication(const double &x, const double &y)
-    {
-      return (x * y);
-    }
-
-    double Division(const double &x, const double &y)
-    {
-      return (x / y);
-    }
-    double Power(const double &x, const double &y)
-    {
-      return pow(x,y);
-    }
-};
-
-void Menu(int& operat0r, fstream& file)
+void Calculation()
 {
-  // Display Menu to user.
-  cout << "\n:: Welcome to Simple Calculator :: \n";
-  cout << "\nWhat function do you want to use? \n";
-  cout << "1 - Addition " << endl;
-  cout << "2 - Subtraction " << endl;
-  cout << "3 - Multiplication " << endl;
-  cout << "4 - Division " << endl;
-  cout << "5 - Power " << endl;
-  cout << "6 - End Calculator " << endl;
-  cout << "Input: " << endl;
-  // Print to log.txt
-  file << "\n:: Welcome to Simple Calculator :: \n";
-  file << "\nWhat function do you want to use? \n";
-  file << "1 - Addition " << endl;
-  file << "2 - Subtraction " << endl;
-  file << "3 - Multiplication " << endl;
-  file << "4 - Division " << endl;
-  file << "5 - Power " << endl;
-  file << "6 - End Calculator " << endl;
-  file << "Input: " << endl;
+  Calculator key;
+  float x=0, y=0;
+  string x1, y2, z;
+  char choice = ' ';
 
-  // Get choice from user.
-  cin >> operat0r;
-  cout << endl;
-  file << operat0r;
-  file << endl;
+  // fstream declaration to create log.txt file and write to it.
+  fstream file("log.txt",ios::out|ios::trunc);
+
+  // Call Menu() function to display Menu to user.
+  Menu();
+
+  // Read input from user.
+  cin >> x1 >> z >> y2;
+
+  // Check for ';' at the end of y.
+  size_t terminate = y2.find(';');
+
+  // convert expression given by y from string to a floating value.
+  x = stof(x1);
+
+  // loop until ';' is entered.
+  do
+  {
+    choice  = z.at(0);
+
+    if(terminate!=-1)
+    {
+      y = stof(y2.substr(0,terminate));
+    }
+    else
+    {
+      y = stof(y2);
+    }
+
+    // Display the value of the first opearand.
+    cout << x << " ";
+    // Write to log.txt
+    file << x << " ";
+
+    switch(choice)
+    {
+      case '+': //Addition
+        x = key.Addition(x,y);
+        break;
+      case '-': //Subtraction
+        x = key.Subtraction(x,y);
+        break;
+      case '*': //Multiplication
+        x = key.Multiplication(x,y);
+        break;
+      case '/': //Division
+        if(y==0)
+        {
+          cout << "!!Error!! Cannot divide by zero.\n";
+          file << "!!Error!! Cannot divide by zero.\n";
+        }
+        else
+          x = key.Division(x,y);
+        break;
+        case '^': // Power
+          x = key.Power(x,y);
+        break;
+      }
+      // Display result.
+      cout << choice << " " << y << " = " << x << endl;
+
+      // Write result to log.txt
+      file << choice << " " << y << " = " << x << endl;
+
+      if(terminate!=-1)
+      {
+        break;
+      }
+      else
+        cout << x << " ";
+        cin >> z >> y2;
+        // Look for ';' once more.
+        terminate = y2.find(';');
+  } while(true);
+  // Close fstream file.
+  file.close();
 }
 
 int main()
 {
-  int choice;
-  do
-  {
-    Calculator key; //Object
-    int x, y;
-    fstream file = fstream("log.txt",ios::out|ios::app);
-    Menu(choice,file);
-
-
-    switch(choice)
-    {
-      case 1: //Addition
-        cout << "**ADDITION**" << endl;
-        cout << "Please enter first number: " << endl;
-        cin >> x;
-        cout << "Please enter second number: " << endl;
-        cin >> y;
-        cout << x << " + " << y << " = ";
-        cout << key.Addition(x, y) << endl;
-        // Print to log.txt
-        file << "**ADDITION**" << endl;
-        file << "Please enter first number: " << endl;
-        file << x << endl;
-        file << "Please enter second number: " << endl;
-        file << y << endl;
-        file << x << " + " << y << " = ";
-        file << key.Addition(x, y) << endl;
-        break;
-      case 2: //Subtraction
-        cout << "**SUBTRACTION**" << endl;
-        cout << "Please enter first number: " << endl;
-        cin >> x;
-        cout << "Please enter second number: " << endl;
-        cin >> y;
-        cout << x << " - " << y << " = ";
-        cout << key.Subtraction(x, y) << endl;
-        // Print to log.txt
-        file << "**SUBTRACTION**" << endl;
-        file << "Please enter first number: " << endl;
-        file << x << endl;
-        file << "Please enter second number: " << endl;
-        file << y << endl;
-        file << x << " - " << y << " = ";
-        file << key.Subtraction(x, y) << endl;
-        break;
-      case 3: //Multiplication
-        cout << "**MULTIPLICATION**" << endl;
-        cout << "Please enter first number: " << endl;
-        cin >> x;
-        cout << "Please enter second number: " << endl;
-        cin >> y;
-        cout << x << " x " << y << " = ";
-        cout << key.Multiplication(x, y) << endl;
-        // Print to log.txt
-        file << "**MULTIPLICATION**" << endl;
-        file << "Please enter first number: " << endl;
-        file << x << endl;
-        file << "Please enter second number: " << endl;
-        file << y << endl;
-        file << x << " x " << y << " = ";
-        file << key.Multiplication(x, y) << endl;
-        break;
-      case 4: //Division
-        cout << "**DIVISION**" << endl;
-        cout << "Please enter first number: " << endl;
-        cin >> x;
-        cout << "Please enter second number: " << endl;
-        cin >> y;
-        cout << x << " / " << y << " = ";
-        cout << key.Division(x, y) << endl;
-        if(y==0)
-        {
-          cout << "!!Error!! Cannot divide by zero.\n";
-        }
-        // Print to log.txt
-        file << "**DIVISION**" << endl;
-        file << "Please enter first number: " << endl;
-        file << x << endl;
-        file << "Please enter second number: " << endl;
-        file << y << endl;
-        file << x << " / " << y << " = ";
-        file << key.Division(x, y) << endl;
-        if(y == 0)
-        {
-          file << "Cannot divide by zero.\n";
-        }
-        break;
-        case 5: // Power
-        cout << "**Power**" << endl;
-        cout << "Please enter base: " << endl;
-        cin >> x;
-        cout << "Please enter exponent: " << endl;
-        cin >> y;
-        cout << x << " ^ " << y << " = ";
-        cout << key.Power(x, y) << endl;
-        // Print to log.txt
-        file << "**Power**" << endl;
-        file << "Please enter base: " << endl;
-        file << x << endl;
-        file << "Please enter exponent: " << endl;
-        file << y << endl;
-        file << x << " ^ " << y << " = ";
-        file << key.Power(x, y) << endl;
-        break;
-      case 6:
-        cout << "Ending Calculator...\n";
-        file << "Ending Calculator...\n";
-        break;
-      default:
-        cout << "Invalid Input.\n";
-        file << "Invalid Input.\n";
-        break;
-    }file.close();
-  }while(choice!= 6);
+  Calculation();
   return 0;
 }
