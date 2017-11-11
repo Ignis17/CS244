@@ -1,6 +1,6 @@
 // Name: Joel Turbi
 // Description: Simple Calculator
-// Due Date: 11/08/2017
+// Due Date: 11/11/2017
 
 #include <iostream>
 #include <string>
@@ -70,13 +70,15 @@ void Calculation()
         x = key.Multiplication(x,y);
         break;
       case '/': //Division
-        if(y==0)
+        if(y != 0)
         {
-          cout << "!!Error!! Cannot divide by zero.\n";
-          file << "!!Error!! Cannot divide by zero.\n";
+          x = key.Division(x,y);
         }
         else
-          x = key.Division(x,y);
+        {
+          cout << "Cannot divide by " << y << "\n";
+          file << "Cannot divide by " << y << "\n";
+        }
         break;
         case '^': // Power
           x = key.Power(x,y);

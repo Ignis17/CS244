@@ -1,6 +1,6 @@
 // Name: Joel Turbi
 // Description: Simple Calculator
-// Due Date: 11/08/2017
+// Due Date: 11/11/2017
 
 #ifndef SIMPLECALCULATOR_H
 #define SIMPLECALCULATOR_H
