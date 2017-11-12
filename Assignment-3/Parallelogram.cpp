@@ -174,7 +174,7 @@ class Parallelogram
    cout << thirdParallelogram.ToString() << setw(15) << " perimeter: "
         << thirdParallelogram.Perimeter() << " area: "
         << thirdParallelogram.Area() << " minor: "
-        << thirdParallelogram.MinorDiagonal() << " major: "
+        << thirdParallelogram.MinorDiagonal() << setw(9) << " major: "
         << thirdParallelogram.MajorDiagonal() << "\n";
 
    cout << fourthParallelogram.ToString() << setw(14) << " perimeter: "
