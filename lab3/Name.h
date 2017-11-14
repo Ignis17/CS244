@@ -1,6 +1,6 @@
 //Team: <Team Name>
-//Author: <Names>
-//Creation: <Date>
+//Author: Joel Turbi, Christopher Williams, Luis Casado
+//Creation: 11/14/2017
 #ifndef NAME_H
 #define NAME_H
 
@@ -13,20 +13,71 @@ namespace lab3
 		private:
 		std::string firstName;
 		std::string lastName;
-		
+
 		public:
-		Name();
-		Name(std::string,std::string);
-		Name(const Name&);
-		Name& operator=(const Name&);
-		~Name() {}
-		std::string& GetFirstName();
-		std::string& GetLastName();
-		void SetFirstName(const std::string&);
-		void SetLastName(const std::string&);
-		std::string ToString() const;
-		friend std::ostream& operator<<(std::ostream&,const Name&);
+		Name()
+		{
+			firstName = " ";
+			lastName = " ";
+		}
+
+		Name(std::string firstName,std::string lastName)
+		{
+			if(!isalpha(firstName && !isalpha(lastName)))
+			{
+				this->firstName = " ";
+				this->lastName = " ";
+			}
+			else
+			{
+				this->firstName = firstName;
+				this->lastName =lastName;
+			}
+		}
+
+		Name(const Name& other)
+		{
+			firstName = firstName.other;
+			lastName = lastName.other;
+		}
+		Name& operator=(const Name& rhs)
+		{
+			if(this != &rhs)
+			{
+				this->firstName = rhs.firstName;
+				this->lastName = rhs.lastName;
+			}
+			return *this;
+		}
+		~Name(){}
+		std::string& GetFirstName()
+		{
+			return firstName;
+		}
+		std::string& GetLastName(last)
+		{
+			return lastName;
+		}
+		void SetFirstName(const std::string& first)
+		{
+			firstName = first;
+		}
+		void SetLastName(const std::string& last)
+		{
+			lastName = last;
+		}
+		std::string ToString() const
+		{
+			std::stringstream out;
+			out << firstName << " " << lastName << "\n";
+			return out.str();
+		}
+		friend std::ostream& operator<<(std::ostream& out,const Name& obj)
+		{
+			out << obj.Tostring();
+			return out;
+		}
 	};
 }
 
-#endif 
+#endif

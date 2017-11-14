@@ -15,24 +15,112 @@ namespace lab3
 		std::string city;
 		std::string state;
 		std::string zipcode;
-		
+
 		public:
-		Address();
-		Address(std::string,std::string,std::string,std::string);
-		Address(const Address&);
-		Address& operator=(const Address&);
-		~Address() {}
-		std::string& GetStreet(); 
-		std::string& GetCity();
-		std::string& GetState(); 
-		std::string& GetZipcode();
-		void SetStreet(const std::string&);
-		void SetCity(const std::string&);
-		void SetState(const std::string&);
-		void SetZipcode(const std::string&);
-		std::string ToString() const; 
-		friend std::ostream& operator<<(std::ostream&,const Address&);
+		Address()
+		{
+			street = " ";
+			city = " ";
+			state = "NY";
+			zipcode = "11111";
+		}
+		Address(std::string street,std::string city,std::string state ,std::string zipcode)
+		{
+			this->street = street;
+			for(int i = 0;i < city.length();i+=1)
+			{
+				if(!isalpha(city[i]))
+				{
+					this->city = " ";
+				}
+				else
+				{
+					this->city = city;
+				}
+			}
+
+			if(state.length() != 2)
+			{
+				state = "NY";
+			}
+			else
+			{
+				this->state = state;
+			}
+			if(zipcode.length() != 5)
+			{
+				zipcode = "11111";
+			}
+			else
+			{
+				this->zipcode = zipcode;
+			}
+		}
+		Address(const Address& other)
+		{
+			street = street.other;
+			city = city.other;
+			state = state.other;
+			zipcode = zipcode.other;
+		}
+		Address& operator=(const Address& rhs)
+		{
+			if(this != &rhs)
+			{
+				this->street = rhs.street;
+				this->city = rhs.city;
+				this->state = rhs.state;
+				this->zipcode = rhs.zipcode;
+			}
+			return *this;
+		}
+
+		~Address(){}
+
+		std::string& GetStreet()
+		{
+			return street;
+		}
+		std::string& GetCity()
+		{
+			return city;
+		}
+		std::string& GetState()
+		{
+			return state;
+		}
+		std::string& GetZipcode()
+		{
+			return zipcode;
+		}
+		void SetStreet(const std::string& st)
+		{
+			street = st;
+		}
+		void SetCity(const std::string& ct)
+		{
+			city = ct;
+		}
+		void SetState(const std::string& sta)
+		{
+			state = sta;
+		}
+		void SetZipcode(const std::string& zip)
+		{
+			zipcode = zip;
+		}
+		std::string ToString() const
+		{
+			std::stringstream out;
+			out << street << "\n"  << city << " , " << state << " " << zipcode << "\n";
+			return out.str();
+		}
+		friend std::ostream& operator<<(std::ostream& out,const Address& obj)
+		{
+			out << obj.ToString();
+			return out;
+		}
 	};
 }
 
-#endif 
+#endif

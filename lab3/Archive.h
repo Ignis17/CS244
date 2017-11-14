@@ -14,7 +14,7 @@ namespace lab3
 	class Name;
 	class Address;
 	class Employee;
-	
+
 	bool validName(std::string str)
 	{
 		for(int i = 0;i < str.length();i+=1)
@@ -24,19 +24,19 @@ namespace lab3
 		}
 		return true;
 	}
-	
+
 	bool validInitials(std::string str)
 	{
 		if(str.length() != 2)
 			return false;
 		return (isalpha(str[0]) && isalpha(str[1]));
 	}
-	
+
 	bool validZipcode(std::string str)
 	{
 		if(str.length() != 5)
 			return false;
-		
+
 		for(int i = 0;i < 5;i += 1)
 		{
 			if(!isdigit(str[i]))
