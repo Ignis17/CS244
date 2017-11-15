@@ -19,8 +19,8 @@ namespace lab3
 		public:
 		Address()
 		{
-			street = " ";
-			city = " ";
+			street = "";
+			city = "";
 			state = "NY";
 			zipcode = "11111";
 		}
@@ -31,14 +31,11 @@ namespace lab3
 			{
 				if(!isalpha(city[i]))
 				{
-					this->city = " ";
+					this->city = "";
 				}
 				else
-				{
-					this->city = city;
-				}
+				this->city = city;
 			}
-
 			if(state.length() != 2)
 			{
 				state = "NY";
@@ -47,6 +44,7 @@ namespace lab3
 			{
 				this->state = state;
 			}
+
 			if(zipcode.length() != 5)
 			{
 				zipcode = "11111";
@@ -58,10 +56,10 @@ namespace lab3
 		}
 		Address(const Address& other)
 		{
-			street = street.other;
-			city = city.other;
-			state = state.other;
-			zipcode = zipcode.other;
+			street = other.street;
+			city = other.city;
+			state = other.state;
+			zipcode = other.zipcode;
 		}
 		Address& operator=(const Address& rhs)
 		{
@@ -122,5 +120,4 @@ namespace lab3
 		}
 	};
 }
-
 #endif
