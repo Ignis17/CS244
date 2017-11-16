@@ -58,7 +58,7 @@ namespace lab3
         return *this;
       }
       // Destructor
-      ~Name() {}
+      ~Name(){}
       std::string& GetFirstName()
       {
         return firstName;

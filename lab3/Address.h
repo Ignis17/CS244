@@ -26,7 +26,6 @@ namespace lab3
 		}
 		Address(std::string street,std::string city,std::string state ,std::string zipcode)
 		{
-			this->street = street;
 			for(int i = 0;i < city.length();i+=1)
 			{
 				if(!isalpha(city[i]))
@@ -53,6 +52,7 @@ namespace lab3
 			{
 				this->zipcode = zipcode;
 			}
+            street = street;
 		}
 		Address(const Address& other)
 		{

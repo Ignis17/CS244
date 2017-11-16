@@ -46,8 +46,6 @@ namespace lab3
 			 name = other.name;
 			 address = other.address;
 			 salary = other.salary;
-			 nextId = other.nextId;
-			 employeeId = other.employeeId;
 		}
 		Employee& operator=(const Employee& rhs)
 		{
@@ -56,8 +54,6 @@ namespace lab3
 				this->name = rhs.name;
 				this->address = rhs.address;
 				this->salary = rhs.salary;
-				this->nextId = rhs.nextId;
-				this->employeeId = rhs.employeeId;
 			}
 			return *this;
 		}

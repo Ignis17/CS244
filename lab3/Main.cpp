@@ -12,5 +12,6 @@ int main()
 	{
 		cout << "You have successfully completed Lab 3.\n";
 	}
+
 	return 0;
 }

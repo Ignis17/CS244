@@ -1,3 +1,6 @@
+// Name: Joel Turbi
+// Version: Assignment 3
+// Creation: 11/16/2017
 #ifndef PARALLELOGRAM_H
 #define PARALLELOGRAM_H
 
