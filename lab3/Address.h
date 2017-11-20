@@ -1,6 +1,6 @@
-//Team: <Team Name>
-//Author: <Names>
-//Creation: <Date>
+//Team: Ignis
+//Author: Joel Turbi, Christopher Williams, Luis Casado
+//Creation: 11/14/2017
 #ifndef ADDRESS_H
 #define ADDRESS_H
 
@@ -26,33 +26,34 @@ namespace lab3
 		}
 		Address(std::string street,std::string city,std::string state ,std::string zipcode)
 		{
-			for(int i = 0;i < city.length();i+=1)
+			this->street = street;
+
+			if(validName(city))
 			{
-				if(!isalpha(city[i]))
-				{
-					this->city = "";
-				}
-				else
 				this->city = city;
 			}
-			if(state.length() != 2)
-			{
-				state = "NY";
-			}
 			else
+			{
+				this->city = "";
+			}
+
+			if(validInitials(state))
 			{
 				this->state = state;
 			}
-
-			if(zipcode.length() != 5)
-			{
-				zipcode = "11111";
-			}
 			else
+			{
+				this->state = "NY";
+			}
+
+			if(validZipcode(zipcode))
 			{
 				this->zipcode = zipcode;
 			}
-            street = street;
+			else
+			{
+				this->zipcode = "11111";
+			}
 		}
 		Address(const Address& other)
 		{
@@ -97,20 +98,23 @@ namespace lab3
 		}
 		void SetCity(const std::string& ct)
 		{
-			city = ct;
+			if(validName(ct))
+				city = ct;
 		}
 		void SetState(const std::string& sta)
 		{
-			state = sta;
+			if(validInitials(sta))
+				state = sta;
 		}
 		void SetZipcode(const std::string& zip)
 		{
-			zipcode = zip;
+			if(validZipcode(zip))
+				zipcode = zip;
 		}
 		std::string ToString() const
 		{
 			std::stringstream out;
-			out << street << "\n"  << city << " , " << state << " " << zipcode << "\n";
+			out << street << "\n" << city << "," << state << " " << zipcode;
 			return out.str();
 		}
 		friend std::ostream& operator<<(std::ostream& out,const Address& obj)

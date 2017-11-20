@@ -1,10 +1,12 @@
-//Team: <Team Name>
-//Author: <Names>
-//Creation: <Date>
+//Team: Ignis
+//Author: Joel Turbi, Christopher Williams, Luis Casado
+//Creation: 11/14/2017
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
 #include "Archive.h"
+#include "Name.h"
+#include "Address.h"
 
 namespace lab3
 {
@@ -20,32 +22,28 @@ namespace lab3
 		public:
 		Employee()
 		{
-			name = name;
-			address = address;
-			nextId = employeeId;
+			name = Name();
+			address = Address();
+			employeeId = nextId++;
 			salary = 5000;
-			nextId +=1;
 		}
 		Employee(const Name& name,const Address& address,double salary)
 		{
 			this->name = name;
 			this->address = address;
-			if(salary>=5000)
+			if(salary < 5000)
 			{
-				this->salary = salary;
+				salary = 5000;
 			}
-			else
-			{
-				this->salary = 5000;
-			}
-			employeeId = nextId;
-			nextId +=1;
+			this->salary = salary;
+			employeeId = nextId++;
 		}
 		Employee(const Employee& other)
 		{
 			 name = other.name;
 			 address = other.address;
 			 salary = other.salary;
+			 employeeId = other.employeeId;
 		}
 		Employee& operator=(const Employee& rhs)
 		{
@@ -54,15 +52,12 @@ namespace lab3
 				this->name = rhs.name;
 				this->address = rhs.address;
 				this->salary = rhs.salary;
+				this->employeeId = rhs.employeeId;
 			}
 			return *this;
 		}
 		~Employee(){}
 
-		int GetEmployeeId()
-		{
-			return employeeId;
-		}
 		Name& GetName()
 		{
 			return name;
@@ -71,13 +66,17 @@ namespace lab3
 		{
 			return address;
 		}
-		static int GetNextId()
+		int GetEmployeeId()
 		{
-			return nextId;
+			return employeeId;
 		}
 		double GetSalary()
 		{
 			return salary;
+		}
+		static int GetNextId()
+		{
+			return nextId;
 		}
 		void SetName(const Name& nam)
 		{
@@ -89,13 +88,13 @@ namespace lab3
 		}
 		void SetSalary(double sal)
 		{
-			salary = sal;
+			if(sal >= 5000)
+				salary = sal;
 		}
 		std::string ToString() const
 		{
 			std::stringstream out;
-			out << name << " " << employeeId << "\n" << address << "\n"
-					<< salary << "\n";
+			out << name << " " << employeeId << "\n" << address << "\n" << salary;
 			return out.str();
 		}
 		friend std::ostream& operator<<(std::ostream& out,const Employee& obj)

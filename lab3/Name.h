@@ -1,4 +1,4 @@
-//Team: <Team Name>
+//Team: Ignis
 //Author: Joel Turbi, Christopher Williams, Luis Casado
 //Creation: 11/14/2017
 #ifndef NAME_H
@@ -22,24 +22,23 @@ namespace lab3
 		  }
       Name(std::string firstName,std::string lastName)
       {
-        for(int i = 0;i < firstName.length();i+=1)
-        {
-          if(!isalpha(firstName[i]))
-          {
-            this->firstName = "";
-          }
-          else
-          this->firstName = firstName;
-        }
-        for(int i = 0;i < lastName.length();i+=1)
-        {
-          if(!isalpha(lastName[i]))
-          {
-            this->lastName = "";
-          }
-          else
-          this->lastName = lastName;
-        }
+				if(validName(firstName))
+				{
+					this->firstName = firstName;
+				}
+				else
+				{
+					this->firstName = "";
+				}
+
+				if(validName(lastName))
+				{
+					this->lastName = lastName;
+				}
+				else
+				{
+					this->lastName = "";
+				}
       }
 		  // Copy constructor
       Name(const Name& other)
@@ -59,6 +58,7 @@ namespace lab3
       }
       // Destructor
       ~Name(){}
+
       std::string& GetFirstName()
       {
         return firstName;
@@ -67,18 +67,23 @@ namespace lab3
       {
         return lastName;
       }
-      void SetFirstName(const std::string& first)
+
+			void SetFirstName(const std::string& first)
       {
-        firstName = first;
+				if(validName(first))
+        	firstName = first;
       }
-      void SetLastName(const std::string& last)
+
+			void SetLastName(const std::string& last)
       {
-        lastName = last;
+				if(validName(last))
+        	lastName = last;
       }
+
       std::string ToString() const
       {
         std::stringstream out;
-        out << firstName << " " << lastName << "\n";
+        out << firstName << " " << lastName;
         return out.str();
       }
       friend std::ostream& operator<<(std::ostream& out,const Name& obj)
