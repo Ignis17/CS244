@@ -36,8 +36,16 @@ namespace lab3
 			{
 				salary = 5000;
 			}
+<<<<<<< HEAD
 			this->salary = salary;
 			nextId++;
+=======
+			else
+			{
+				this->salary = salary;
+			}
+			this->employeeId = employeeId;
+>>>>>>> 8bf68024753408212e46ea5eb5cf66cbd9b239c2
 		}
 		Employee(const Employee& other)
 		{
@@ -89,8 +97,11 @@ namespace lab3
 		}
 		void SetSalary(double sal)
 		{
-			if(sal >= 5000)
+			if(sal > 5000)
+			{
 				salary = sal;
+			}
+
 		}
 		std::string ToString() const
 		{
@@ -107,5 +118,4 @@ namespace lab3
 
 	int Employee::nextId = 1;
 }
-
 #endif

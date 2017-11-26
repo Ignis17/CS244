@@ -1,6 +1,6 @@
-// Name: Joel
-//
-//
+// Name: Joel Turbi
+// Version: Assignment 5
+// Creation: 11/20/2017
 #include "Clock.h"
 #include <iostream>
 
