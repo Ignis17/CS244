@@ -22,10 +22,11 @@ namespace lab3
 		public:
 		Employee()
 		{
-			name = Name();
-			address = Address();
-			employeeId = nextId++;
+			Name();
+			 	Address();
+			employeeId = nextId;
 			salary = 5000;
+			nextId++;
 		}
 		Employee(const Name& name,const Address& address,double salary)
 		{
@@ -36,7 +37,7 @@ namespace lab3
 				salary = 5000;
 			}
 			this->salary = salary;
-			employeeId = nextId++;
+			nextId++;
 		}
 		Employee(const Employee& other)
 		{
