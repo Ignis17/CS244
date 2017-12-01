@@ -95,4 +95,50 @@ public:
     }
   }
 };
+
+class Tower:protected Stack
+{
+public:
+  Tower(){}
+  ~Tower(){}
+  Tower(const Tower& obj):Stack(static_cast<const Stack&>(obj)){}
+  Tower& operator =(const Tower& obj)
+  {
+    if(this != &obj)
+    {
+      Stack::operator=(static_cast<const Stack&>(obj));
+    }
+    return *this;
+  }
+  bool Add(int disk)
+  {
+    if(Stack::IsEmpty())
+    {
+      Push(disk);
+      return true;
+    }
+    else
+    {
+      if(Top() < disk)
+      {
+        return false;
+      }
+      Push(disk);
+      return true;
+    }
+  }
+  int Remove()
+  {
+      if(Stack::IsEmpty())
+      {
+        throw "Tower is empty.";
+      }
+      else
+      {
+        int top = Top();
+        Pop();
+        return top;
+      }
+    }
+};
 #endif

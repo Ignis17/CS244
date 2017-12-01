@@ -1,14 +1,16 @@
 // Name: Joel Turbi
 // Version: Assignment 6
-// Creation: 11/24/2017
+// Creation: 11/28/2017
 #ifndef FRACTION_H
 #define FRACTION_H
 
 #include <iostream>
-#include<cstring>
+#include <cstring>
+#include <cstdio>
 #include <sstream>
 
 using namespace std;
+
 class Fraction
 {
 private:
@@ -22,13 +24,17 @@ public:
     this->denominator = 1;
   }
   // Overloaded constructor
-  Fraction(int num, int den)
+  Fraction(int numerator, int denominator)
   {
-    if(den == 0)
+    if(denominator == 0)
+    {
       throw "Error: Cannot divide by zero.";
-
-      this->numerator = num;
-      this->denominator = den;
+    }
+    else
+    {
+      this->numerator = numerator;
+      this->denominator = denominator;
+    }
   }
   int GetNumerator()
   {
