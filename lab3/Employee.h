@@ -1,6 +1,7 @@
+//Lab 3: Employee
 //Team: Ignis
 //Author: Joel Turbi, Christopher Williams, Luis Casado
-//Creation: 11/14/2017
+//Creation: 11/30/2017
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 
@@ -22,37 +23,33 @@ namespace lab3
 		public:
 		Employee()
 		{
-			Name();
-			 	Address();
+			name = Name();
+			address = Address();
 			employeeId = nextId;
 			salary = 5000;
-			nextId++;
+			nextId ++;
 		}
 		Employee(const Name& name,const Address& address,double salary)
 		{
 			this->name = name;
 			this->address = address;
-			if(salary < 5000)
-			{
-				salary = 5000;
-			}
-<<<<<<< HEAD
-			this->salary = salary;
-			nextId++;
-=======
-			else
+			if(salary >= 5000)
 			{
 				this->salary = salary;
 			}
-			this->employeeId = employeeId;
->>>>>>> 8bf68024753408212e46ea5eb5cf66cbd9b239c2
+			else
+			{
+				this->salary = 5000;
+			}
+			this->employeeId = nextId;
+		 	nextId ++;
 		}
 		Employee(const Employee& other)
 		{
-			 name = other.name;
-			 address = other.address;
-			 salary = other.salary;
-			 employeeId = other.employeeId;
+			 this->name = other.name;
+			 this->address = other.address;
+			 this->salary = other.salary;
+			 this->employeeId = other.employeeId;
 		}
 		Employee& operator=(const Employee& rhs)
 		{
@@ -61,7 +58,7 @@ namespace lab3
 				this->name = rhs.name;
 				this->address = rhs.address;
 				this->salary = rhs.salary;
-				this->employeeId = rhs.employeeId;
+				this->employeeId = rhs.nextId;
 			}
 			return *this;
 		}
@@ -97,16 +94,17 @@ namespace lab3
 		}
 		void SetSalary(double sal)
 		{
-			if(sal > 5000)
-			{
+			if(sal >= 5000)
 				salary = sal;
-			}
-
 		}
 		std::string ToString() const
 		{
 			std::stringstream out;
-			out << name << " " << employeeId << "\n" << address << "\n" << salary;
+
+			out << std::setprecision(2) << std::fixed;
+			out << name << " " << employeeId << '\n';
+			out << address << '\n';
+			out << salary;
 			return out.str();
 		}
 		friend std::ostream& operator<<(std::ostream& out,const Employee& obj)
@@ -118,4 +116,5 @@ namespace lab3
 
 	int Employee::nextId = 1;
 }
+
 #endif

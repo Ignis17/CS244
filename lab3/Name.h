@@ -1,6 +1,7 @@
+//Lab 3: Employee
 //Team: Ignis
 //Author: Joel Turbi, Christopher Williams, Luis Casado
-//Creation: 11/14/2017
+//Creation: 11/30/2017
 #ifndef NAME_H
 #define NAME_H
 
