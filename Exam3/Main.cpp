@@ -1,50 +1,48 @@
 // Author: Joel Turbi
-//
-//
+// Creation: 12/05/2017
+// Description: Exam 3
+
 #include "Complex.h"
 #include <iostream>
 
 int main()
 {
-  Complex one(2,5);
-  Complex two(1,3);
-  Complex *diff;
-  diff=difference(one,two);//1+2i
+  Complex first(4,9);
+  Complex second(3,8);
 
-  cout<<"Difference : "<<diff->ToString()<<endl;
+  Complex *difference;
+  difference = Difference(first,second);
+  cout << "Difference: " << difference->ToString() << "\n\n";
 
-  Complex *sum_;
-  sum_=sum(one,two);
+  Complex *addition;
+  addition = Sum(first,second);
+  cout << "Sum: " << addition->ToString() << "\n\n";
 
-  cout<<"Sum : "<<sum_->ToString()<<endl;
+  Complex *product;
+  product=Product(first,second);
+  cout << "Product: " << product->ToString() << "\n\n";
 
-  Complex *pro;
-  pro=product(one,two);
+  Complex *quotient;
+  quotient = Quotient(first,second);
+  cout << "Quotient: " << quotient->ToString() << "\n\n";
 
-  cout<<"Product : "<<pro->ToString()<<endl;
-  Complex *quo;
-  quo=quotient(one,two);
+  first.Complement();
+  cout << "Complement of one: " << first << "\n\n";
 
-  cout<<"Quotient : "<<quo->ToString()<<endl<<endl;
-
-  //complement one
-  one.Complement();
-
-  cout<<"Complement of one : "<<one<<endl<<endl;
-
-  bool isEqual=(one==two);
+  bool isEqual=(first==second);
   if(isEqual)
   {
-    cout<<"one is equal to two"<<endl;
-  }
-  else
-  {
-    cout<<"one is not equal to two"<<endl;
+    cout << "One is equal to two\n";
   }
 
-  cout<<endl<<"One : "<<one<<endl<<"Two : "<<two<<endl;
-  cout<<endl<<"Modulus of one is : "<<one.modulus()<<endl<<endl;
-  cout<<endl<<"Modulus of two is : "<<two.modulus()<<endl<<endl;
+  else
+  {
+    cout << "One is not equal to two\n";
+  }
+
+  cout << "\nOne: " << first << "\n\nTwo: " << second << "\n";
+  cout << "\nModulus of one is: " << first.Modulus() << "\n\n";
+  cout << "\nModulus of two is: " << second.Modulus() << "\n\n";
   cin.get();
   return 0;
 }
