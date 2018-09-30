@@ -12,4 +12,5 @@ exception handling, and class libraries including GUI applications._*
 ### Included here:
 - Assignments
 - Projects
-- In class Labs
+- Exams
+- Labs
