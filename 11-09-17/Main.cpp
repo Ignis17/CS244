@@ -10,7 +10,7 @@ int main()
 	//the time at midnight
 	cout << Time().ToString() << "\n";
 	Time t;
-  t.SetHour(16);
+  	t.SetHour(16);
 	t.SetMinute(57);
 	t.SetSecond(0);
 	cout << t << "\n";

@@ -1,0 +1,48 @@
+Side: 3
+Length: 2
+Area: -2.3
+Sum of Interior Angles: 180.0
+Perimeter: 6.0
+
+Side: 4
+Length: 8
+Area: 57.4
+Sum of Interior Angles: 360.0
+Perimeter: 32.0
+
+Side: 5
+Length: 1
+Area: 4.7
+Sum of Interior Angles: 540.0
+Perimeter: 5.0
+
+Side: 6
+Length: 8
+Area: 129.1
+Sum of Interior Angles: 720.0
+Perimeter: 48.0
+
+Side: 7
+Length: 6
+Area: -11.5
+Sum of Interior Angles: 900.0
+Perimeter: 42.0
+
+Side: 8
+Length: 8
+Area: 229.5
+Sum of Interior Angles: 1080.0
+Perimeter: 64.0
+
+Side: 9
+Length: 2
+Area: -20.3
+Sum of Interior Angles: 1260.0
+Perimeter: 18.0
+
+Side: 10
+Length: 4
+Area: 61.7
+Sum of Interior Angles: 1440.0
+Perimeter: 40.0
+
